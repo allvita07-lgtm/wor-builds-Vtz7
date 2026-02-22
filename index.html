@@ -3,147 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WoR Builds BA 🔥</title>
+  <title>WoR ROCK BUILDS 💀</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: system-ui; }
-    .hero-card { transition: all 0.3s; }
-    .hero-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(168 85 247 / 0.3); }
-    .hero-img { height: 160px; object-fit: cover; }
+    body { font-family: system-ui; background: linear-gradient(#0a0a0a, #220000); color: #fff; }
+    .tab { position: relative; }
+    .tab::before, .tab::after { content: '💀'; position: absolute; top: -10px; font-size: 24px; color: #ff0000; }
+    .tab::before { left: 12px; } .tab::after { right: 12px; }
+    .hero-card { transition: all 0.4s; border: 4px solid #8b0000; box-shadow: 0 0 25px #ff0000; }
+    .hero-card:hover { transform: scale(1.1) rotate(3deg); border-color: #ff00ff; box-shadow: 0 0 40px #ff00ff; }
+    .neon { text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff0000; }
   </style>
 </head>
-<body class="bg-zinc-950 text-white min-h-screen pb-24">
-  <div class="max-w-md mx-auto">
+<body class="min-h-screen pb-28">
 
-    <!-- HEADER -->
-    <div class="bg-zinc-900 p-4 flex items-center justify-between border-b border-purple-500">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-dragon text-purple-500 text-4xl"></i>
-        <div>
-          <h1 class="text-3xl font-bold tracking-tight">WoR Builds BA</h1>
-          <p class="text-zinc-400 text-xs">Meta 22/Fev/2026 • Paulo Afonso</p>
-        </div>
-      </div>
-    </div>
+  <!-- HEADER ROCK -->
+  <div class="bg-black p-6 border-b-4 border-red-700 flex items-center justify-center gap-6">
+    <span class="text-6xl">💀</span>
+    <h1 class="text-5xl font-black tracking-widest neon">WoR ROCK BUILDS</h1>
+    <span class="text-6xl">💀</span>
+  </div>
 
-    <!-- TABS -->
-    <div class="grid grid-cols-5 text-center text-xs bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
-      <button onclick="openTab(0)" class="tab py-3 tab-active" id="tab0">Heróis</button>
-      <button onclick="openTab(1)" class="tab py-3" id="tab1">Equip</button>
-      <button onclick="openTab(2)" class="tab py-3" id="tab2">Conteúdos</button>
-      <button onclick="openTab(3)" class="tab py-3" id="tab3">Montar Time</button>
-      <button onclick="openTab(4)" class="tab py-3" id="tab4">Convocações</button>
-    </div>
+  <!-- TABS -->
+  <div class="grid grid-cols-6 text-center text-xs bg-black border-b-4 border-red-700 sticky top-0 z-50">
+    <button onclick="openTab(0)" class="tab py-4 tab-active bg-zinc-950" id="tab0">HERÓIS</button>
+    <button onclick="openTab(1)" class="tab py-4" id="tab1">BUILDS</button>
+    <button onclick="openTab(2)" class="tab py-4" id="tab2">MONTAR</button>
+    <button onclick="openTab(3)" class="tab py-4" id="tab3">EQUIP</button>
+    <button onclick="openTab(4)" class="tab py-4" id="tab4">ESTÁGIOS</button>
+    <button onclick="openTab(5)" class="tab py-4" id="tab5">MINHAS</button>
+  </div>
 
-    <!-- TAB 0: HERÓIS (com imagens reais) -->
-    <div id="content0" class="tab-content p-4">
-      <input id="search" placeholder="Buscar herói..." class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-4 py-3 mb-6 text-white" onkeyup="filterHeroes()">
-      <div id="heroesGrid" class="grid grid-cols-2 gap-4"></div>
-    </div>
+  <!-- TAB 0: HERÓIS -->
+  <div id="content0" class="tab-content p-4">
+    <input id="search" placeholder="Buscar herói... 🔥" class="w-full bg-black border-4 border-red-600 rounded-3xl px-6 py-4 text-xl mb-6" onkeyup="filterHeroes()">
+    <div id="heroesGrid" class="grid grid-cols-2 gap-4"></div>
+  </div>
 
-    <!-- TAB 1: EQUIPAMENTOS -->
-    <div id="content1" class="tab-content p-4 hidden">
-      <h2 class="text-2xl font-bold mb-6 text-purple-400">Melhores Sets 2026</h2>
-      <div class="space-y-6">
-        <div class="bg-zinc-900 p-5 rounded-3xl"><strong class="text-lg">Ageless Wrath</strong><p class="text-green-400">+30% Crit DMG +1% stack (máx 60%)</p><p class="text-xs text-zinc-400">Fighters / Mages DPS</p></div>
-        <div class="bg-zinc-900 p-5 rounded-3xl"><strong class="text-lg">Night Terror</strong><p class="text-green-400">+25% Crit DMG por 3s após crit</p><p class="text-xs text-zinc-400">Burst Ne Zha / Sun Wukong</p></div>
-        <div class="bg-zinc-900 p-5 rounded-3xl"><strong class="text-lg">Asclepius / Invigoration</strong><p class="text-green-400">HP +10% + Heal +20-30%</p><p class="text-xs text-zinc-400">Dolores / Elowyn / Diaochan</p></div>
-        <div class="bg-zinc-900 p-5 rounded-3xl"><strong class="text-lg">Soulbound Arcana</strong><p class="text-green-400">+10% Ult DMG por stack (máx +50%)</p><p class="text-xs text-zinc-400">Rivenhald / Vierna</p></div>
-        <div class="bg-zinc-900 p-5 rounded-3xl"><strong class="text-lg">Astral Guardian</strong><p class="text-green-400">HP +30% / DEF +15%</p><p class="text-xs text-zinc-400">Tanks (Thunkles / Knight Arlott)</p></div>
-      </div>
-    </div>
+  <!-- TAB 1: BUILDS META -->
+  <div id="content1" class="tab-content p-4 hidden">
+    <h2 class="text-4xl font-black mb-6 neon text-center">META BUILDS FEV 2026 💀</h2>
+    <div id="buildsList" class="space-y-6"></div>
+  </div>
 
-    <!-- TAB 2: CONTEÚDOS -->
-    <div id="content2" class="tab-content p-4 hidden">
-      <h2 class="text-2xl font-bold mb-6 text-purple-400">Clear % com time Meta</h2>
-      <div class="space-y-4">
-        <div class="bg-gradient-to-r from-purple-900 to-zinc-900 p-5 rounded-3xl"><strong>GR1 (até stage 24)</strong><p class="text-green-400 text-2xl">96% com 2 healers S+ + AoE</p><small>Elowyn + Dolores + Ne Zha/Hatssut</small></div>
-        <div class="bg-gradient-to-r from-purple-900 to-zinc-900 p-5 rounded-3xl"><strong>GR2</strong><p class="text-green-400 text-2xl">92% lvl 50+</p><small>Rivenhald lead + 2 healers</small></div>
-        <div class="bg-gradient-to-r from-purple-900 to-zinc-900 p-5 rounded-3xl"><strong>Campaign (capítulo atual)</strong><p class="text-green-400 text-2xl">98% auto</p><small>Qualquer time S+ com 1 tank</small></div>
-        <div class="bg-gradient-to-r from-purple-900 to-zinc-900 p-5 rounded-3xl"><strong>Arena AoE</strong><p class="text-green-400 text-2xl">85-95%</p><small>Ne Zha + Vierna + Lust</small></div>
-      </div>
-    </div>
+  <!-- TAB 2: MONTAR TIME -->
+  <div id="content2" class="tab-content p-4 hidden">
+    <h2 class="text-4xl font-black mb-6 neon text-center">MONTE SEU TIME ROCK</h2>
+    <div id="teamSlots" class="space-y-4"></div>
+    <button onclick="calculateBuild()" class="w-full mt-8 bg-red-600 hover:bg-red-700 py-6 rounded-3xl font-black text-2xl">CALCULAR % VITÓRIA</button>
+    <div id="buildResult" class="mt-8 text-center text-4xl font-black hidden"></div>
+  </div>
 
-    <!-- TAB 3: MONTAR TIME -->
-    <div id="content3" class="tab-content p-4 hidden">
-      <h2 class="text-2xl font-bold mb-6 text-purple-400">Monte seu Time Meta</h2>
-      <div class="space-y-4" id="teamSlots"></div>
-      <button onclick="calculateTeam()" class="w-full mt-8 bg-purple-600 hover:bg-purple-700 py-5 rounded-3xl font-bold text-xl">CALCULAR % DE VITÓRIA</button>
-      <div id="teamResult" class="mt-6 text-center text-3xl font-bold hidden"></div>
-    </div>
-
-    <!-- TAB 4: CONVOCACÕES -->
-    <div id="content4" class="tab-content p-4 hidden">
-      <h2 class="text-2xl font-bold mb-6 text-purple-400">Taxas de Convocação 2026</h2>
-      <div class="bg-zinc-900 p-6 rounded-3xl space-y-6 text-sm">
-        <div><strong>Base Legendary</strong><p>0.8% (pity 180 pulls)</p></div>
-        <div><strong>Event Rate-up (20x)</strong><p>16% Legendary do banner</p></div>
-        <div><strong>Ancient Summon</strong><p>1.5% + garantia aos 100</p></div>
-        <div class="text-green-400 font-bold">Dica: Sempre espere evento 1+1 ou 20x antes de puxar!</div>
-      </div>
+  <!-- TAB 3: EQUIP -->
+  <div id="content3" class="tab-content p-4 hidden">
+    <h2 class="text-4xl font-black mb-6 neon text-center">MELHORES SETS 2026</h2>
+    <div class="space-y-6">
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Ageless Wrath</strong> - Crit DMG +60% stack (DPS fighters/mages)</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Night Terror</strong> - Burst após crit (Ne Zha, Kigiri)</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Soulbound Arcana</strong> - Ult DMG +50% (Rivenhald, Vierna)</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Asclepius / Invigoration</strong> - Heal + HP (Elowyn, Dolores)</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Astral Guardian</strong> - Tank HP/DEF (Thunkles, Arlott)</div>
     </div>
   </div>
 
-  <!-- MODAL HERÓI -->
-  <div id="modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-50">
-    <div class="bg-zinc-900 rounded-3xl max-w-md w-full max-h-[90vh] overflow-auto">
-      <div class="p-6" id="modalContent"></div>
-      <button onclick="closeModal()" class="absolute top-6 right-6 text-4xl text-zinc-400">×</button>
+  <!-- TAB 4: ESTÁGIOS -->
+  <div id="content4" class="tab-content p-4 hidden">
+    <h2 class="text-4xl font-black mb-6 neon text-center">ESTÁGIOS & CLEAR %</h2>
+    <div class="space-y-6 text-lg">
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>GR1 (até 24)</strong><br><span class="text-green-400 text-3xl">96-98%</span> - Elowyn + Dolores + Ne Zha/Hatssut</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>GR2</strong><br><span class="text-green-400 text-3xl">92%</span> - Rivenhald lead + 2 healers</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>GR3 / GR4 / GR5</strong><br><span class="text-green-400 text-3xl">85-90%</span> - Thunkles tank + AoE DPS</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Arena AoE</strong><br><span class="text-green-400 text-3xl">90%</span> - Ne Zha + Vierna + Lust</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Guild Boss / Void Rift</strong><br><span class="text-green-400 text-3xl">95%</span> - Sun Wukong + Kigiri burst</div>
+      <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl"><strong>Campaign / Tower</strong><br><span class="text-green-400 text-3xl">99%</span> - Qualquer time S+ com 1 tank</div>
     </div>
+  </div>
+
+  <!-- TAB 5: MINHAS BUILDS -->
+  <div id="content5" class="tab-content p-4 hidden">
+    <h2 class="text-4xl font-black mb-6 neon text-center">MINHAS BUILDS 💀</h2>
+    <div class="mb-6 space-y-3">
+      <input id="myHero" placeholder="Herói" class="w-full bg-black border-4 border-red-600 p-4 rounded-3xl">
+      <input id="myGear" placeholder="Gear principal" class="w-full bg-black border-4 border-red-600 p-4 rounded-3xl">
+      <input id="myTeam" placeholder="Time recomendado" class="w-full bg-black border-4 border-red-600 p-4 rounded-3xl">
+      <button onclick="addMyBuild()" class="w-full bg-red-600 py-5 rounded-3xl font-black text-xl">SALVAR MINHA BUILD</button>
+    </div>
+    <div id="myBuildsList" class="space-y-4"></div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center p-4 z-50">
+    <div class="bg-zinc-950 border-4 border-red-600 rounded-3xl max-w-md w-full max-h-[90vh] overflow-auto p-6" id="modalContent"></div>
   </div>
 
   <script>
     const heroes = [
-      {n:"Rivenhald", t:"S+", c:"Tactician", img:"https://picsum.photos/id/1015/400/400", g:"Soulbound Arcana", s:"ATK > Crit Rate > Crit DMG", w1:"96%", w2:"94%", notes:"Melhor lead GR2/PVP"},
-      {n:"Ne Zha", t:"S+", c:"Fighter", img:"https://picsum.photos/id/133/400/400", g:"Night Terror", s:"Crit DMG > ATK > HP", w1:"98%", w2:"90%", notes:"AoE rei GR1"},
-      {n:"Valara", t:"S+", c:"Tactician", img:"https://picsum.photos/id/201/400/400", g:"The Wisdom", s:"Crit Rate > ATK > Speed", w1:"95%", w2:"97%", notes:"Burst meta"},
-      {n:"Dolores", t:"S+", c:"Healer", img:"https://picsum.photos/id/251/400/400", g:"Asclepius", s:"HP > Heal > Speed", w1:"97%", w2:"95%", notes:"Sustain top"},
-      {n:"Elowyn", t:"S+", c:"Healer", img:"https://picsum.photos/id/274/400/400", g:"Invigoration", s:"HP > Speed", w1:"96%", w2:"93%", notes:"Must-have healer"},
-      {n:"Sun Wukong", t:"S+", c:"Fighter", img:"https://picsum.photos/id/180/400/400", g:"Ageless Wrath", s:"Crit Rate > Crit DMG", w1:"93%", w2:"91%", notes:"Boss killer"},
-      {n:"Vierna", t:"S+", c:"Mage", img:"https://picsum.photos/id/1016/400/400", g:"Soulbound Arcana", s:"Crit Rate > ATK", w1:"92%", w2:"94%", notes:"Ult spam"},
-      {n:"Hatssut", t:"S+", c:"Marksman", img:"https://picsum.photos/id/237/400/400", g:"Hawk Eye", s:"ATK > Crit Rate", w1:"94%", w2:"92%", notes:"Campaign god"},
-      {n:"Kigiri", t:"S+", c:"Fighter", img:"https://picsum.photos/id/1018/400/400", g:"Night Terror", s:"Crit DMG > ATK", w1:"97%", w2:"89%", notes:"PVP beast"},
-      {n:"Thunkles", t:"S", c:"Defender", img:"https://picsum.photos/id/106/400/400", g:"Astral Guardian", s:"HP > DEF", w1:"90%", w2:"88%", notes:"Novo tank meta"}
+      {n:"Rivenhald", t:"S+", c:"Tactician", img:"https://picsum.photos/id/1015/600/600", gear:"Soulbound Arcana", stat:"ATK > Crit Rate > Crit DMG", notes:"Melhor lead GR2/PVP", win:"96%"},
+      {n:"Ne Zha", t:"S+", c:"Fighter", img:"https://picsum.photos/id/133/600/600", gear:"Night Terror", stat:"Crit DMG > ATK > HP", notes:"AoE rei GR1", win:"98%"},
+      {n:"Kigiri", t:"S+", c:"Fighter", img:"https://picsum.photos/id/1018/600/600", gear:"Night Terror", stat:"Crit DMG > ATK", notes:"PVP god", win:"97%"},
+      {n:"Sun Wukong", t:"S+", c:"Fighter", img:"https://picsum.photos/id/180/600/600", gear:"Ageless Wrath", stat:"Crit Rate > Crit DMG", notes:"Boss killer", win:"95%"},
+      {n:"Valara", t:"S+", c:"Tactician", img:"https://picsum.photos/id/201/600/600", gear:"The Wisdom", stat:"Crit Rate > ATK", notes:"Burst meta", win:"97%"},
+      {n:"Elowyn", t:"S+", c:"Healer", img:"https://picsum.photos/id/274/600/600", gear:"Invigoration", stat:"HP > Speed", notes:"Must-have healer", win:"96%"},
+      {n:"Dolores", t:"S+", c:"Healer", img:"https://picsum.photos/id/251/600/600", gear:"Asclepius", stat:"HP > Heal", notes:"Sustain top", win:"97%"},
+      {n:"Vierna", t:"S+", c:"Mage", img:"https://picsum.photos/id/1016/600/600", gear:"Soulbound Arcana", stat:"Crit Rate > ATK", notes:"Ult spam", win:"94%"},
+      {n:"Hatssut", t:"S+", c:"Marksman", img:"https://picsum.photos/id/237/600/600", gear:"Hawk Eye", stat:"ATK > Crit Rate", notes:"Campaign god", win:"94%"},
+      {n:"Thunkles", t:"S", c:"Defender", img:"https://picsum.photos/id/106/600/600", gear:"Astral Guardian", stat:"HP > DEF", notes:"Novo tank meta", win:"92%"},
+      {n:"Knight Arlott", t:"S", c:"Defender", img:"https://picsum.photos/id/107/600/600", gear:"Astral Guardian", stat:"HP > DEF", notes:"Tank sólido", win:"90%"},
+      {n:"Lust", t:"S+", c:"Mage", img:"https://picsum.photos/id/108/600/600", gear:"Ageless Wrath", stat:"Crit DMG", notes:"Burst mage", win:"93%"},
+      {n:"Diaochan", t:"S+", c:"Healer", img:"https://picsum.photos/id/109/600/600", gear:"Asclepius", stat:"Heal Effect", notes:"Heal god", win:"96%"},
+      {n:"Raizan", t:"S+", c:"Marksman", img:"https://picsum.photos/id/110/600/600", gear:"Hawk Eye", stat:"ATK > Crit", notes:"Single target", win:"92%"},
+      {n:"Erlang Shen", t:"S", c:"Defender", img:"https://picsum.photos/id/111/600/600", gear:"Astral Guardian", stat:"HP", notes:"Duelist tank", win:"91%"},
+      {n:"Beelzebub", t:"S+", c:"Mage", img:"https://picsum.photos/id/112/600/600", gear:"Soulbound Arcana", stat:"ATK", notes:"Demon king", win:"93%"},
+      {n:"Aracha", t:"S+", c:"Fighter", img:"https://picsum.photos/id/116/600/600", gear:"Ageless Wrath", stat:"Crit DMG", notes:"Spider DPS", win:"94%"},
+      {n:"Ymiret", t:"S+", c:"Fighter", img:"https://picsum.photos/id/117/600/600", gear:"Night Terror", stat:"Crit DMG", notes:"PVP beast", win:"95%"},
+      {n:"Pierre", t:"S", c:"Mage", img:"https://picsum.photos/id/118/600/600", gear:"The Wisdom", stat:"Crit Rate", notes:"Novo painter", win:"89%"},
+      {n:"Rosalia", t:"S", c:"Healer", img:"https://picsum.photos/id/119/600/600", gear:"Asclepius", stat:"Heal", notes:"Nova paintress", win:"91%"},
+      // +4 mais para 25
+      {n:"Khamet", t:"S+", c:"Mage", img:"https://picsum.photos/id/120/600/600", gear:"Soulbound Arcana", stat:"ATK", notes:"Meta mage", win:"93%"},
+      {n:"Ingrid", t:"S", c:"Mage", img:"https://picsum.photos/id/121/600/600", gear:"The Wisdom", stat:"Crit Rate", notes:"Support", win:"89%"},
+      {n:"Silas", t:"S+", c:"Marksman", img:"https://picsum.photos/id/122/600/600", gear:"Hawk Eye", stat:"ATK", notes:"Sniper", win:"92%"},
+      {n:"Brokkir", t:"S", c:"Defender", img:"https://picsum.photos/id/123/600/600", gear:"Astral Guardian", stat:"HP", notes:"Heavy tank", win:"88%"}
     ];
+
+    let myBuilds = JSON.parse(localStorage.getItem('myWoRBuilds')) || [];
 
     function renderHeroes(list) {
       const grid = document.getElementById('heroesGrid');
       grid.innerHTML = '';
       list.forEach(h => {
         const div = document.createElement('div');
-        div.className = 'hero-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-700 cursor-pointer';
+        div.className = 'hero-card bg-zinc-950 rounded-3xl overflow-hidden cursor-pointer';
         div.innerHTML = `
-          <img src="${h.img}" class="hero-img w-full">
+          <img src="${h.img}" class="w-full h-56 object-cover">
           <div class="p-4">
-            <div class="flex justify-between">
-              <span class="text-2xl font-bold">${h.n}</span>
-              <span class="px-4 py-1 bg-purple-600 text-xs rounded-full font-bold">${h.t}</span>
+            <div class="flex justify-between items-center">
+              <span class="text-3xl font-black">${h.n}</span>
+              <span class="bg-red-600 px-5 py-1 text-sm rounded-full">${h.t}</span>
             </div>
-            <p class="text-zinc-400">${h.c}</p>
+            <p class="text-red-400">${h.c}</p>
           </div>
         `;
-        div.onclick = () => showHeroModal(h);
+        div.onclick = () => showModal(h);
         grid.appendChild(div);
       });
     }
 
-    function showHeroModal(h) {
+    function showModal(h) {
       document.getElementById('modalContent').innerHTML = `
         <div class="text-center">
-          <img src="${h.img}" class="w-40 h-40 mx-auto rounded-3xl object-cover mb-4">
-          <h2 class="text-4xl font-bold">${h.n}</h2>
-          <p class="text-purple-400">${h.t} ${h.c}</p>
+          <img src="${h.img}" class="w-52 mx-auto rounded-3xl border-4 border-red-600">
+          <h2 class="text-5xl font-black mt-4">${h.n}</h2>
+          <p class="text-red-400 text-2xl">${h.t} ${h.c}</p>
         </div>
-        <div class="mt-8 space-y-6">
-          <div><span class="text-zinc-400">Melhor Gear:</span><br><span class="font-bold text-xl">${h.g}</span></div>
-          <div><span class="text-zinc-400">Prioridade Stats:</span><br><span class="font-mono">${h.s}</span></div>
-          <div><span class="text-zinc-400">Notas:</span><br><span class="text-green-400">${h.notes}</span></div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-green-900/30 p-4 rounded-2xl"><p class="text-xs">GR1</p><p class="text-4xl font-bold text-green-400">${h.w1}</p></div>
-            <div class="bg-green-900/30 p-4 rounded-2xl"><p class="text-xs">GR2</p><p class="text-4xl font-bold text-green-400">${h.w2}</p></div>
-          </div>
+        <div class="mt-10 space-y-8 text-xl">
+          <div><span class="text-red-400">GEAR:</span><br><span class="font-black">${h.gear}</span></div>
+          <div><span class="text-red-400">STATS:</span><br><span class="font-mono">${h.stat}</span></div>
+          <div><span class="text-red-400">NOTAS:</span><br><span class="text-green-400">${h.notes}</span></div>
+          <div class="text-5xl font-black text-green-400">WIN RATE: ${h.win}</div>
         </div>
+        <button onclick="closeModal()" class="mt-8 w-full bg-red-600 py-6 rounded-3xl font-black text-2xl">FECHAR 💀</button>
       `;
       document.getElementById('modal').classList.remove('hidden');
     }
@@ -152,8 +171,85 @@
 
     function filterHeroes() {
       const term = document.getElementById('search').value.toLowerCase();
-      const filtered = heroes.filter(h => h.n.toLowerCase().includes(term));
-      renderHeroes(filtered);
+      renderHeroes(heroes.filter(h => h.n.toLowerCase().includes(term)));
+    }
+
+    function renderBuilds() {
+      const list = document.getElementById('buildsList');
+      list.innerHTML = heroes.map(h => `
+        <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl">
+          <span class="text-3xl font-black">${h.n}</span>
+          <div class="mt-4 space-y-2 text-lg">
+            <p><strong>Gear:</strong> ${h.gear}</p>
+            <p><strong>Stats:</strong> ${h.stat}</p>
+            <p><strong>Win:</strong> ${h.win}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function createTeamBuilder() {
+      const slots = document.getElementById('teamSlots');
+      slots.innerHTML = '';
+      for(let i = 0; i < 5; i++) {
+        const sel = document.createElement('select');
+        sel.className = 'w-full bg-black border-4 border-red-600 rounded-3xl px-6 py-6 text-2xl';
+        sel.innerHTML = '<option value="">Herói ' + (i+1) + '</option>' + heroes.map(h => `<option value="\( {h.n}"> \){h.n}</option>`).join('');
+        slots.appendChild(sel);
+      }
+    }
+
+    function calculateBuild() {
+      const selects = document.querySelectorAll('#teamSlots select');
+      let score = 0;
+      let names = [];
+      selects.forEach(s => {
+        if(s.value) {
+          const h = heroes.find(x => x.n === s.value);
+          score += h.t === "S+" ? 20 : h.t === "S" ? 12 : 5;
+          names.push(s.value);
+        }
+      });
+      const percent = Math.min(99, 50 + Math.floor(score / 2));
+      document.getElementById('buildResult').innerHTML = `
+        <span class="text-green-400">${percent}%</span> DE VITÓRIA!<br>
+        <span class="text-xl">Time: ${names.join(' + ')}</span>
+      `;
+      document.getElementById('buildResult').classList.remove('hidden');
+    }
+
+    function renderMyBuilds() {
+      const list = document.getElementById('myBuildsList');
+      list.innerHTML = myBuilds.map((b, i) => `
+        <div class="bg-zinc-950 border-4 border-red-600 p-6 rounded-3xl">
+          <div class="flex justify-between">
+            <span class="font-black text-3xl">${b.hero}</span>
+            <button onclick="deleteMyBuild(${i})" class="text-red-600 text-4xl">×</button>
+          </div>
+          <p><strong>Gear:</strong> ${b.gear}</p>
+          <p><strong>Time:</strong> ${b.team}</p>
+        </div>
+      `).join('');
+    }
+
+    function addMyBuild() {
+      const hero = document.getElementById('myHero').value;
+      const gear = document.getElementById('myGear').value;
+      const team = document.getElementById('myTeam').value;
+      if(hero && gear) {
+        myBuilds.push({hero, gear, team});
+        localStorage.setItem('myWoRBuilds', JSON.stringify(myBuilds));
+        renderMyBuilds();
+        document.getElementById('myHero').value = '';
+        document.getElementById('myGear').value = '';
+        document.getElementById('myTeam').value = '';
+      }
+    }
+
+    function deleteMyBuild(i) {
+      myBuilds.splice(i, 1);
+      localStorage.setItem('myWoRBuilds', JSON.stringify(myBuilds));
+      renderMyBuilds();
     }
 
     function openTab(n) {
@@ -163,37 +259,11 @@
       document.getElementById('tab'+n).classList.add('tab-active');
     }
 
-    function createTeamBuilder() {
-      const slots = document.getElementById('teamSlots');
-      slots.innerHTML = '';
-      for(let i=0; i<5; i++) {
-        const sel = document.createElement('select');
-        sel.className = 'w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-4 py-4 text-white';
-        sel.innerHTML = '<option value="">Escolha herói '+(i+1)+'</option>' + heroes.map(h => `<option value="\( {h.n}"> \){h.n} (${h.t})</option>`).join('');
-        slots.appendChild(sel);
-      }
-    }
-
-    function calculateTeam() {
-      const selects = document.querySelectorAll('#teamSlots select');
-      let score = 0;
-      selects.forEach(s => {
-        if(s.value) {
-          const hero = heroes.find(h => h.n === s.value);
-          if(hero.t === "S+") score += 5;
-          else if(hero.t === "S") score += 3;
-          else score += 1;
-        }
-      });
-      const percent = Math.min(98, 40 + score*8);
-      const result = document.getElementById('teamResult');
-      result.classList.remove('hidden');
-      result.innerHTML = `Seu time tem <span class="text-green-400">${percent}%</span> de vitória no meta atual!`;
-    }
-
-    // Init
+    // INIT
     renderHeroes(heroes);
+    renderBuilds();
     createTeamBuilder();
+    renderMyBuilds();
     openTab(0);
   </script>
 </body>
